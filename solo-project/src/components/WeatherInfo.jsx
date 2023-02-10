@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
@@ -12,19 +12,35 @@ const WeatherInfo = () => {
   } else {
     return (
       <div>
-        <h1> {weather.name} </h1>
-        <h2> {weather.weather[0].main} </h2>
-        <p> {weather.weather[0].description} </p>
-        <Button
-          onClick={() => {
-            dispatch({
-              type: "STORE_CITY",
-              payload: weather,
-            });
-          }}
-        >
-          ADD TO FAV
-        </Button>
+        <Container>
+          <Row>
+            <Col xs={4} md={4}></Col>
+            <Col xs={4} md={4}>
+              <Card style={{ width: "18rem" }}>
+                <Card.Body>
+                  <Card.Title>{weather.name} </Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {weather.weather[0].main}
+                  </Card.Subtitle>
+                  <Card.Text>{weather.weather[0].description}</Card.Text>
+                  <Button
+                    onClick={() => {
+                      dispatch({
+                        type: "STORE_CITY",
+                        payload: weather,
+                      });
+                    }}
+                  >
+                    ADD TO FAV
+                  </Button>
+                </Card.Body>
+                <Card.Link href="#">CITY</Card.Link>
+                <Card.Link href="#">Another Link</Card.Link>
+              </Card>
+            </Col>
+            <Col xs={4} md={4}></Col>
+          </Row>
+        </Container>
       </div>
     );
   }

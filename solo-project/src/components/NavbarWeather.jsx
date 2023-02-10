@@ -6,15 +6,21 @@ import { Link } from "react-router-dom";
 
 const NavbarWeather = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="transparent" variant="dark" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand className="text-dark" href="#home">
+          LEATHER WEATHER
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/">Home</Link>
-            <Link to="/favourites">Saved/Fav Cities</Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <Link className="text-danger px-3" to="/">
+              Home
+            </Link>
+            <Link className="text-danger" to="/favourites">
+              Saved/Fav Cities
+            </Link>
+            {/* <NavDropdown className="text-danger" title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -24,7 +30,7 @@ const NavbarWeather = () => {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
